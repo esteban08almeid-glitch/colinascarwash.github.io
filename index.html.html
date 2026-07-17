@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Lavado Las Colinas - Brillo y Frescura</title>
+    
+    <!-- Fuentes modernas desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-blue: #00acc1;
+            --electric-blue: #00e5ff;
+            --primary-dark: #0a192f;
+            --accent-glow: #e0f7fa;
+            --premium-border: #ffd700;
+            --background-light: #f0fafc;
+            --text-dark: #1c2d37;
+            --text-light: #ffffff;
+            --foam-white: #f8fdff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--background-light);
+            /* Patrón creativo de burbujas estilizadas de fondo mediante SVG */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='%2300acc1' fill-opacity='0.04'%3E%3Ccircle cx='20' cy='20' r='10'/%3E%3Ccircle cx='80' cy='40' r='6'/%3E%3Ccircle cx='50' cy='80' r='14'/%3E%3Ccircle cx='110' cy='100' r='8'/%3E%3C/g%3E%3C/svg%3E");
+            color: var(--text-dark);
+            line-height: 1.6;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- HEADER TEMÁTICO DE AUTOLAVADO --- */
+        header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #112240 100%);
+            color: var(--text-light);
+            padding: 4rem 1rem 5rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efecto visual de ola/espuma de jabón en la parte inferior del header */
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23f0fafc' fill-opacity='1' d='M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,144C672,139,768,181,864,186.7C960,192,1056,160,1152,144C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        /* LOGO CREATIVO GENERADO POR CÓDIGO (Silueta de auto deportivo + Burbujas brillantes) */
+        .logo-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 1.5rem auto;
+            background: radial-gradient(circle, #1e3a8a 0%, transparent 70%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .logo-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        header h1 {
+            color: var(--electric-blue);
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 12px rgba(0, 229, 255, 0.3);
+        }
+
+        header p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--accent-glow);
+            font-weight: 300;
+        }
+
+        /* --- CONTAINER PRINCIPAL --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem 1.5rem;
+            position: relative;
+            top: -2rem; /* Eleva el contenido sobre el header */
+            z-index: 10;
+        }
+
+        /* --- ILUSTRACIÓN DE CARRO RELUCIENTE --- */
+        .hero-showcase {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+            margin-bottom: 3.5rem;
+            text-align: center;
+            border: 1px solid rgba(0, 172, 193, 0.1);
+        }
+
+        .car-image-container {
+            max-width: 550px;
+            margin: 0 auto 1rem auto;
+        }
+
+        .hero-showcase h2 {
+            color: var(--primary-dark);
+            font-size: 1.8rem;
+            margin-top: 1rem;
+        }
+
+        .hero-showcase p {
+            color: #556b79;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- SERVICIOS GRID --- */
+        .services-grid {
+            display: grid;
+            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            margin-bottom: 4rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem 2rem 2.5rem 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            position: relative;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 172, 193, 0.15);
+        }
+
+        /* Tarjeta Premium */
+        .service-card.premium {
+            border: 3px solid var(--premium-border);
+            background: linear-gradient(180deg, #ffffff 0%, #fffdf0 100%);
+        }
+
+        .premium-tag {
+            background: linear-gradient(45deg, var(--premium-border), #ffa000);
+            color: var(--primary-dark);
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 6px 20px;
+            border-bottom-left-radius: 15px;
+            font-size: 0.85rem;
+            box-shadow: -2px 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid var(--background-light);
+            padding-bottom: 0.5rem;
+        }
+
+        .service-card.premium h3 {
+            color: #b78103;
+            border-bottom-color: #fceab8;
+        }
+
+        .service-icon-svg {
+            width: 35px;
+            height: 35px;
+            fill: var(--primary-blue);
+        }
+
+        .service-card ul {
+            list-style-type: none;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .service-card ul li {
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.05rem;
+            color: #37474f;
+        }
+
+        .service-card ul li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 4px;
+            width: 20px;
+            height: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300acc1'%3E%3Cpath d='M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z'/%3E%3C/svg%3E");
+            background-size: cover;
+        }
+
+        /* --- PROMO BANNER --- */
+        .promo-banner {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border: 2px dashed #ff9800;
+            color: #e65100;
+            padding: 1.2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 500;
+            font-size: 1rem;
+            box-shadow: 0 6px 12px rgba(255, 152, 0, 0.1);
+            animation: pulse 2.5s infinite;
+        }
+        
+        .promo-banner strong {
+            display: block;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.2rem;
+            letter-spacing: 0.5px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); box-shadow: 0 8px 16px rgba(255, 152, 0, 0.2); }
+            100% { transform: scale(1); }
+        }
+
+        /* --- PRECIOS ESTILOS --- */
+        .price-list {
+            background-color: var(--foam-white);
+            border-radius: 12px;
+            padding: 1.2rem;
+            border: 1px solid rgba(0, 172, 193, 0.08);
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed rgba(0,0,0,0.08);
+        }
+
+        .price-item:last-child {
+            border-bottom: none;
+        }
+
+        .price-vehicle {
+            font-size: 1rem;
+            color: #4f5d65;
+            font-weight: 500;
+        }
+
+        .price-amount {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .service-card.premium .price-amount {
+            color: #b78103;
+        }
+
+        /* --- CONTACTO --- */
+        .cta-section {
+            text-align: center;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .cta-section h2 {
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .cta-section p {
+            color: #556b79;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            min-width: 240px;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+        }
+
+        .btn-wa {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+        }
+
+        .btn-ig {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+        }
+        
+        .btn-icon {
+            width: 26px;
+            height: 26px;
+            fill: white;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            background-color: var(--primary-dark);
+            color: rgba(255,255,255,0.6);
+            margin-top: 4rem;
+            font-size: 0.95rem;
+        }
+
+        footer p strong {
+            color: var(--electric-blue);
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.3rem; }
+            header p { font-size: 1.1rem; }
+            .container { top: -1rem; padding: 0 1rem; }
+            .service-card { padding: 2rem 1.5rem; }
+            .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- LOGO PROFESIONAL INTEGRADO DIRECTAMENTE -->
+        <div class="logo-container">
+            <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="85" fill="none" stroke="#00e5ff" stroke-width="4" stroke-dasharray="8 6"/>
+                <circle cx="100" cy="100" r="75" fill="#0a192f"/>
+                <circle cx="70" cy="60" r="10" fill="none" stroke="#00acc1" stroke-width="2" opacity="0.6"/>
+                <circle cx="135" cy="65" r="14" fill="none" stroke="#00e5ff" stroke-width="2" opacity="0.7"/>
+                <circle cx="65" cy="135" r="8" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.5"/>
+                <path d="M45 115 C45 115, 55 95, 75 92 C95 89, 110 75, 135 75 C155 75, 165 92, 170 102 C175 107, 175 115, 170 115 Z" fill="#00acc1"/>
+                <path d="M70 94 Q110 82 150 92" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                <path d="M145 50 L148 56 L154 57 L149 61 L151 67 L145 63 L139 67 L141 61 L136 57 L142 56 Z" fill="#ffd700"/>
+                <text x="100" y="145" font-family="'Oswald', sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="2">CAR WASH</text>
+            </svg>
+        </div>
+        <h1>Auto Lavado Las Colinas</h1>
+        <p>El brillo y cuidado premium que tu auto merece, sin salir de tu cochera.</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- ILUSTRACIÓN CREATIVA DE CARRO RELUCIENTE -->
+        <div class="hero-showcase">
+            <div class="car-image-container">
+                <svg viewBox="0 0 600 250" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;">
+                    <ellipse cx="300" cy="210" rx="240" ry="20" fill="rgba(0,0,0,0.15)"/>
+                    <path d="M50 210 Q300 230 550 210 Q400 190 50 210" fill="rgba(0, 172, 193, 0.06)"/>
+                    <path d="M100 190 L120 140 Q150 105 230 105 L380 105 Q440 105 480 145 L520 170 Q540 175 540 190 L520 200 L110 200 Z" fill="linear-gradient(to right, #007c91, #00acc1)"/>
+                    <path d="M210 115 L370 115 Q410 115 440 145 L465 170 L175 170 Z" fill="#0a192f"/>
+                    <path d="M220 125 L290 125 L290 160 L190 160 Z" fill="#e0f7fa" opacity="0.7"/>
+                    <path d="M305 125 L370 125 L415 160 L305 160 Z" fill="#e0f7fa" opacity="0.7"/>
+                    <circle cx="180" cy="195" r="30" fill="#1c2d37"/>
+                    <circle cx="180" cy="195" r="18" fill="#b0bec5"/>
+                    <circle cx="440" cy="195" r="30" fill="#1c2d37"/>
+                    <circle cx="440" cy="195" r="18" fill="#b0bec5"/>
+                    <g transform="translate(510, 150) scale(1.3)">
+                        <path d="M0 -15 L3 -4 L14 -3 L5 3 L9 14 L0 7 L-9 14 L-5 3 L-14 -3 L-3 -4 Z" fill="#00e5ff"/>
+                        <circle cx="0" cy="0" r="3" fill="#ffffff"/>
+                    </g>
+                    <g transform="translate(320, 85)">
+                        <path d="M0 -12 L2 -3 L11 -2 L4 2 L7 11 L0 5 L-7 11 L-4 2 L-11 -2 L-2 -3 Z" fill="#ffd700"/>
+                    </g>
+                    <g transform="translate(90, 130) scale(0.8)">
+                        <path d="M0 -12 L2 -3 L11 -2 L4 2 L7 11 L0 5 L-7 11 L-4 2 L-11 -2 L-2 -3 Z" fill="#ffffff"/>
+                    </g>
+                    <circle cx="490" cy="90" r="6" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.6"/>
+                    <circle cx="520" cy="110" r="4" fill="none" stroke="#00acc1" stroke-width="1" opacity="0.5"/>
+                    <circle cx="120" cy="80" r="8" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.4"/>
+                </svg>
+            </div>
+            <h2>¡Tu auto como nuevo sin salir de tu privada!</h2>
+            <p>Trabajamos con agua controlada, microfibras premium y productos de alta gama para garantizar un acabado espejo sin rayaduras.</p>
+        </div>
+
+        <!-- SECCIÓN DE SERVICIOS -->
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>
+                    <svg class="service-icon-svg" viewBox="0 0 24 24"><path d="M19.4 12.6l-1.4-1.4c-1-1-2.6-1-3.6 0l-4.2 4.2-1.4-1.4c-1-1-2.6-1-3.6 0l-1.4 1.4c-1 1-1 2.6 0 3.6l5.2 5.2c1 1 2.6 1 3.6 0l7.2-7.2c1-1 1-2.6 0-3.6zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                    Lavado Estándar
+                </h3>
+                <ul>
+                    <li>Lavado exterior detallado a mano (Shampoo pH neutro)</li>
+                    <li>Aspirado completo de alfombras, asientos y tapetes</li>
+                    <li>Limpieza profunda y abrillantado de tablero y plásticos</li>
+                    <li>Limpieza impecable de vidrios por dentro y por fuera</li>
+                    <li>Abrillantado profesional de llantas (Almorol larga duración)</li>
+                </ul>
+                <div class="price-list">
+                    <div class="price-item"><span>Autos Sedán</span><span class="price-amount">$150</span></div>
+                    <div class="price-item"><span>Camionetas (SUV)</span><span class="price-amount">$190</span></div>
+                </div>
+            </div>
+
+            <div class="service-card premium">
+                <span class="premium-tag">MÁS POPULAR</span>
+                <h3>
+                    <svg class="service-icon-svg" viewBox="0 0 24 24" fill="var(--premium-border)"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                    Lavado Premium
+                </h3>
+                <div class="promo-banner">
+                    <strong>🎁 Regalo de Bienvenida</strong>
+                    ¡Encerado premium GRATIS en tu primer servicio!
+                </div>
+                <ul>
+                    <li><strong>Incluye todo lo del Lavado Estándar</strong></li>
+                    <li><strong>Limpieza profunda y desinfección de tapicería</strong></li>
+                    <li>Lavado a detalle de todos los asientos (Eliminación de manchas)</li>
+                    <li>Limpieza profunda de cielo, puertas y alfombra base</li>
+                    <li>Eliminación completa de malos olores y bacterias</li>
+                </ul>
+                <div class="price-list">
+                    <div class="price-item"><span>Autos Sedán</span><span class="price-amount">$375</span></div>
+                    <div class="price-item"><span>Camionetas (2 filas)</span><span class="price-amount">$475</span></div>
+                    <div class="price-item"><span>Camionetas (3 filas)</span><span class="price-amount">$550</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN DE ACCIÓN -->
+        <section class="cta-section">
+            <h2>¿Listo para agendar tu cita?</h2>
+            <p>Elige tu día y hora ideal. Te atendemos directamente en el estacionamiento o cochera de tu domicilio en Chihuahua.</p>
+            <div class="btn-group">
+                <a href="https://wa.me/526142022618" target="_blank" class="btn btn-wa">Agendar por WhatsApp</a>
+                <a href="https://www.instagram.com/colinascarwash7/" target="_blank" class="btn btn-ig">Seguir en Instagram</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 <strong>Auto Lavado Las Colinas</strong>. Todos los derechos reservados.</p>
+        <p style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.7;">Servicio premium a domicilio exclusivo para Chihuahua, México.</p>
+    </footer>
+
+</body>
+</html>
